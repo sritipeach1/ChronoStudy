@@ -1,0 +1,6 @@
+# Ignore backend secrets and dependencies
+/backend/.env
+/backend/node_modules/
+
+# Ignore frontend dependencies when i add them
+/frontend/node_modules/
