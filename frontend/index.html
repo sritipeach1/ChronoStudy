@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ChronoStudy</title>
+
+  <!-- Pixel font for headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- Body monospace font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Core pixel‑art styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-tile">
+  <div class="container">
+
+    <!-- ▼ new lines start ▼ -->
+    <h1 class="title">🌟 ChronoStudy 🌟</h1>
+    <img src="assets/hero.png"
+         style="width:256px;display:block;margin:0 auto 24px;image-rendering:pixelated;">
+    <!-- ▲ new lines end ▲ -->
+
+    <div id="app"></div>
+  </div>
+  <!-- ── SIGN‑UP elements (hidden at first) ─────────────────────────── -->
+  <button id="openSignup" class="btn">NEW ACCOUNT</button>
+
+    <div id="signupOverlay" class="overlay hidden">
+      <form id="signupForm" class="window">
+        <h3>Create account</h3>
+
+        <input id="suUsername" placeholder="Username" required>
+        <input id="suEmail"    placeholder="Email"    type="email"    required>
+        <input id="suPass"     placeholder="Password" type="password" required>
+
+        <p class="mt">Choose avatar:</p>
+        <div id="avatarGrid" class="grid"></div>
+
+        <button class="btn mt" type="submit">SIGN UP</button>
+      </form>
+    </div>
+  <!-- index.html -->
+  <script type="module" src="js/login.js"></script>
+
+</body>
+</html>

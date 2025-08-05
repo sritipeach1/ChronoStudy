@@ -1,0 +1,225 @@
+/* -------------- variables -------------- */
+:root{
+  --bg-darker: #2f2547;
+  --bg-lighter:#3c2f5b;
+  --accent:    #c7b7ff;
+  --text:      #faf3e0;
+  --border:    #ffffff;
+  --border-dark:#000000;
+  --unit:      8px;          /* base pixel */
+}
+
+/* -------------- global page -------------- */
+html,body{
+  margin:0; padding:0;
+  min-height:100%;
+  color:var(--text);
+  font-family:'Fira Mono', monospace;
+  background-color:var(--bg-darker);
+}
+.bg-tile{
+  background-image:url("../assets/bg-tile.png");
+  image-rendering:pixelated;
+}
+
+/* -------------- container -------------- */
+.container{
+  max-width:600px;
+  margin:32px auto;
+  padding:24px;
+  background:var(--bg-lighter);
+  border:2px solid var(--border);
+  outline:4px solid var(--border-dark);
+  image-rendering:pixelated;
+}
+
+/* -------------- headings -------------- */
+h1,h2,h3{
+  font-family:'Press Start 2P', cursive;
+  letter-spacing:1px;
+  margin:0 0 16px 0;
+}
+
+/* -------------- pixel button -------------- */
+.btn{
+  display:inline-block;
+  padding:calc(var(--unit)*1) calc(var(--unit)*2);
+  background:var(--accent);
+  color:#000;
+  font-family:'Press Start 2P', cursive;
+  font-size:12px;
+  border:2px solid var(--border);
+  outline:4px solid var(--border-dark);
+  text-align:center;
+  cursor:pointer;
+  image-rendering:pixelated;
+  transition:filter .1s;
+}
+.btn:hover{ filter:brightness(1.1); }
+.btn:active{ filter:brightness(.9); }
+
+/* -------------- inputs -------------- */
+input,select{
+  width:100%;
+  background:#fff;
+  color:#000;
+  border:2px solid var(--border);
+  outline:4px solid var(--border-dark);
+  padding:6px;
+  font-family:'Fira Mono', monospace;
+  font-size:14px;
+}
+input:focus{ outline-color:var(--accent); }
+
+/* -------------- list / card -------------- */
+.list{
+  list-style:none; padding:0; margin:0;
+}
+.list li{
+  padding:8px 12px;
+  margin:4px 0;
+  background:#51447e;
+  border:2px solid var(--border);
+  outline:4px solid var(--border-dark);
+  display:flex; justify-content:space-between; align-items:center;
+}
+
+/* -------------- timer display -------------- */
+.timer{
+  font-family:'Press Start 2P', cursive;
+  font-size:32px;
+  text-align:center;
+  margin:16px 0;
+}
+
+/* ---------- sign‑up modal & avatar grid ---------- */
+.overlay{
+  position:fixed; inset:0; background:#0008;
+  display:flex; justify-content:center; align-items:center;
+}
+.hidden{ display:none; }
+
+.window{
+  background:var(--bg-lighter);
+  padding:16px; width:280px;
+  border:2px solid var(--border);
+  outline:4px solid var(--border-dark);
+}
+
+.grid{
+  display:grid; grid-template-columns:repeat(4,64px); gap:8px;
+}
+.grid label{ cursor:pointer; }
+.grid input{ display:none; }
+.grid input:checked + img{ outline:3px solid var(--accent); }
+
+.avatar{
+  width:64px; height:64px; image-rendering:pixelated;
+}
+.mt{ margin-top:12px; }
+
+
+/* ----- layout ----- */
+html,body{ height:100%; }
+body{
+  background: url("../assets/bg-tile.png") repeat fixed var(--bg-darker);
+  image-rendering:pixelated;
+}
+
+
+.container{
+  max-width:600px; width:100%;
+  background:var(--bg-lighter);
+  border:2px solid var(--border);
+  outline:4px solid var(--border-dark);
+  padding:20px;
+  margin-top:40px;
+}
+
+#sidebar{
+  width:160px; background:var(--bg-lighter);
+  border:2px solid var(--border); outline:4px solid var(--border-dark);
+  padding:16px; text-align:center; margin-top:40px;
+}
+
+.avatar{ width:64px; height:64px; image-rendering:pixelated; }
+.caption{ font-family:'Press Start 2P'; font-size:11px; margin-top:6px; }
+
+.title{ font-family:'Press Start 2P'; text-align:center; margin:0 0 18px; }
+
+/* hover / active */
+.btn:hover{ filter:brightness(1.1);   }
+.btn:active{ filter:brightness(.9);   }
+.roomRow:hover{ filter:brightness(1.05); }
+
+/* ---- rooms list styling ---- */
+.roomRow{
+  display:flex; justify-content:space-between; align-items:center;
+  margin:6px 0; padding:6px 8px;
+  background:#5b4e7e;
+  border:2px solid var(--border); outline:4px solid var(--border-dark);
+}
+.roomRow:hover{ filter:brightness(1.05); }
+
+.badge{
+  font-family:'Press Start 2P'; font-size:10px;
+  background:var(--accent); color:#000;
+  padding:2px 6px; margin-right:8px;
+}
+
+/* ---- tiny icons ---- */
+.icon{
+  width:16px; height:16px; image-rendering:pixelated;
+  vertical-align:middle; margin-right:6px;
+}
+
+/* ---- pixel pomodoro card ---- */
+.pomoCard{
+  width:320px; margin:40px auto;
+  background:var(--bg-lighter);
+  border:2px solid var(--border); outline:4px solid var(--border-dark);
+  padding:24px; text-align:center;
+}
+.tabRow{ display:flex; justify-content:center; gap:8px; margin-bottom:18px; }
+.tab{
+  font-family:'Press Start 2P'; font-size:10px;
+  background:#4e4170; color:#dcdafc; border:2px solid var(--border-dark);
+  padding:4px 8px; cursor:pointer;
+}
+.tab.current{ background:var(--accent); color:#000; }
+
+.clock{
+  font-family:'Press Start 2P'; font-size:48px;
+  margin:12px 0 24px; color:#fff; letter-spacing:2px;
+}
+
+.pomoBtn{
+  font-family:'Press Start 2P'; font-size:14px;
+  background:var(--accent); color:#000;
+  border:2px solid var(--border-dark); padding:8px 24px; cursor:pointer;
+}
+.status{ font-family:'Fira Mono', monospace; margin:16px 0 8px; }
+
+.taskHead{ font-family:'Press Start 2P'; font-size:12px; margin:18px 0 8px; }
+.taskList{ list-style:none; padding:0; margin:0 0 8px 0; }
+
+/* ---- dashboard panel ---- */
+.dashCard{
+  width:320px; max-height: 90vh;   
+  overflow-y :auto;         /* ⬅ small side‑panel size */
+  background:#4e4170;
+  border:2px solid var(--border); outline:4px solid var(--border-dark);
+  padding:20px; text-align:center; margin:32px auto 0;
+}
+
+.tileRow{ display:flex; gap:12px; justify-content:center; margin-bottom:14px; }
+.statTile{
+  background:#5b4e7e; padding:8px 12px;
+  border:2px solid var(--border-dark);
+  width:110px;
+}
+.bigNum{ font-family:'Press Start 2P'; font-size:20px; display:block; }
+
+.chartBox{ width:280px; margin:0 auto; }     /* limit canvas width */
+
+canvas{ background:#4e4170; }                 /* dark bg so labels pop */
