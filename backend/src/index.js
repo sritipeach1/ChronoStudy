@@ -1,19 +1,30 @@
 // backend/src/index.js
 require('dotenv').config();
 const express = require('express');
-const db = require('./db');        // ← our new module
+const db = require('./db');
+const userRoutes = require('./routes/users');
+const statsRoutes = require('./routes/stats');
+const roomRoutes = require('./routes/rooms');
+
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// simple logger so we see incoming requests
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-});
+// ————— Middleware —————
+app.use(express.json());        // parse JSON bodies
 
+/* ── serve static pixel‑art front‑end ── */
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../../frontend')));
+
+
+
+app.use('/api', userRoutes);    // mount your user/auth routes
+app.use('/api/rooms', roomRoutes);
+app.use('/api/stats', statsRoutes);
+
+// ————— Test DB route —————
 app.get('/', async (req, res) => {
   try {
-    // run a test query against Postgres
     const { rows } = await db.query('SELECT NOW() AS now');
     res.json({ dbTime: rows[0].now });
   } catch (err) {
@@ -25,3 +36,6 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+
+
+console.log('Route for /api/rooms:', roomRoutes);
